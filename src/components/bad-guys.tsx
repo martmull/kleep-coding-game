@@ -1,7 +1,8 @@
 import React from 'react';
 import { slugify } from "@/utils/slugify";
 import Link from "next/link";
-import { badGuys } from "@/data/bad-guys";
+
+const badGuys = [{id: 1, name: 'Kim-Jung Un', slug: 'kim-jung-un'}]
 
 export default function BadGuys({type}) {
   const Table = ({data}) => (

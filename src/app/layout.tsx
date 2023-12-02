@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
     <body className={inter.className}>
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-500">
-      <div className="bg-white shadow-md rounded-md m-8 p-8 w-full max-w-md">
+      <div className="bg-white shadow-md rounded-md m-8 p-8 w-full max-w-lg">
         {children}
       </div>
     </div>

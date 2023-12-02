@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from 'react'
-import { badGuysInfos } from "@/data/bad-guys-infos";
+import SubmitButton from "@/components/submit-button";
+
+const badGuysInfos = [{id: 1, name: 'Age', type: 'NUMBER'}]
 
 export default function Page({params}: { params: { slug: string } }) {
   const [formData, setFormData] = useState({});
@@ -53,12 +55,7 @@ export default function Page({params}: { params: { slug: string } }) {
           )}
         </div>
       ))}
-      <button
-        type="submit"
-        className="bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 rounded-lg focus:outline-none focus:ring focus:border-blue-300 transition duration-300"
-      >
-        Valider
-      </button>
+      <SubmitButton/>
     </form>
   )
 }
