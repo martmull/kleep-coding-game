@@ -6,8 +6,8 @@ async function main() {
   await prisma.badGuy.createMany({
     data: [
       {name: 'Kim-Jung Un', slug: 'kim-jung-un'},
-      {name: 'Xavier Dupont de Ligonnès', slug: 'xavier-dupont-de-ligonnes'},
-      {name: 'Vladimir Poutine', slug: 'vladimir-putin'},
+      {name: 'Xavier Dupont de Ligonnès', slug: 'xavier-dupont-de-ligonnès'},
+      {name: 'Vladimir Poutine', slug: 'vladimir-poutine'},
       {name: 'Le Chiffre', slug: 'le-chiffre'},
       {name: 'Thanos', slug: 'thanos'},
       {name: 'Voldemort', slug: 'voldemort'},
