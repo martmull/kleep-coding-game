@@ -1,10 +1,22 @@
-import React from 'react';
+"use client"
+import React, { useEffect, useState } from 'react';
 import { slugify } from "@/utils/slugify";
 import Link from "next/link";
 
-const badGuys = [{id: 1, name: 'Kim-Jung Un', slug: 'kim-jung-un'}]
-
 export default function BadGuys({type}) {
+
+  const [badGuys, setBadGuys] = useState([])
+
+  const getBadGuys = () => {
+    fetch('/api/bad-guys')
+      .then(response => response.json())
+      .then(data => setBadGuys(data))
+  }
+
+  useEffect(() => {
+    getBadGuys()
+  }, [])
+
   const Table = ({data}) => (
     <table className="min-w-full border border-gray-300 bg-white shadow-md rounded-md overflow-hidden">
       <thead>
@@ -15,9 +27,11 @@ export default function BadGuys({type}) {
       <tbody>
       {data.map((item, index) => (
         <tr key={item.id} className={index % 2 === 0 ? 'bg-gray-50 hover:bg-gray-100' : 'bg-white hover:bg-gray-50'}>
-          <Link href={`${type}/${slugify(item.name)}`}>
-            <td className="py-2 px-4 border-b block">{item.name}</td>
-          </Link>
+          <td className="py-2 px-4 border-b block">
+            <Link href={`${type}/${slugify(item.name)}`}>
+              {item.name}
+            </Link>
+          </td>
         </tr>
       ))}
       </tbody>
