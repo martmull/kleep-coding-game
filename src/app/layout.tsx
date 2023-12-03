@@ -19,12 +19,12 @@ export default function RootLayout({
   return (
     <html lang="en">
     <body className={inter.className}>
+    <Link href="/"
+          className="absolute top-4 left-4 text-indigo-500 hover:text-indigo-600 focus:outline-none focus:ring focus:border-indigo-300 transition duration-300">
+      <HomeButton/>
+    </Link>
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-500">
-      <div className="bg-white shadow-md rounded-md m-8 p-8 w-full max-w-lg">
-        <Link href="/"
-              className="absolute top-4 left-4 text-indigo-500 hover:text-indigo-600 focus:outline-none focus:ring focus:border-indigo-300 transition duration-300">
-          <HomeButton/>
-        </Link>
+      <div className="bg-white shadow-md rounded-md w-full max-w-lg">
         {children}
       </div>
     </div>

@@ -31,10 +31,10 @@ model Info {
 }
 
 model Request {
-  id       Int    @id @default(autoincrement())
+  id       Int     @id @default(autoincrement())
   badGuyId Int
-  badGuy   BadGuy @relation(fields: [badGuyId], references: [id], onDelete: Cascade)
+  badGuy   BadGuy  @relation(fields: [badGuyId], references: [id], onDelete: Cascade)
   infoId   Int
-  info     Info   @relation(fields: [infoId], references: [id], onDelete: Cascade)
+  info     Info    @relation(fields: [infoId], references: [id], onDelete: Cascade)
   value    String?
 }

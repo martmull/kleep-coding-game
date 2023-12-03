@@ -4,13 +4,16 @@ import { slugify } from "@/utils/slugify";
 import Link from "next/link";
 
 export default function BadGuys({type}) {
-
+  const [isLoading, setIsLoading] = useState(true)
   const [badGuys, setBadGuys] = useState([])
 
   const getBadGuys = () => {
     fetch('/api/bad-guys')
       .then(response => response.json())
-      .then(data => setBadGuys(data))
+      .then(data => {
+        setBadGuys(data)
+        setIsLoading(false)
+      })
   }
 
   useEffect(() => {
@@ -37,10 +40,13 @@ export default function BadGuys({type}) {
       </tbody>
     </table>
   );
+
+  if (isLoading) return (<></>)
+
   return (
-    <>
+    <div className='p-8'>
       <h1 className="text-3xl font-bold mb-4 text-indigo-600">Liste des Malfrats</h1>
       <Table data={badGuys}/>
-    </>
+    </div>
   )
 }
