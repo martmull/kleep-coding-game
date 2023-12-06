@@ -3,22 +3,21 @@ import React, { useEffect, useState } from 'react';
 import { slugify } from "@/utils/slugify";
 import Link from "next/link";
 
-export default function BadGuys({type}) {
+export default function BadGuys({type}: { type: string }) {
   const [isLoading, setIsLoading] = useState(true)
   const [badGuys, setBadGuys] = useState([])
 
-  const getBadGuys = () => {
-    fetch('/api/bad-guys')
-      .then(response => response.json())
-      .then(data => {
-        setBadGuys(data)
-        setIsLoading(false)
-      })
-  }
-
   useEffect(() => {
+    const getBadGuys = () => {
+      fetch(`/api/bad-guys?type=${type}`)
+        .then(response => response.json())
+        .then(data => {
+          setBadGuys(data)
+          setIsLoading(false)
+        })
+    }
     getBadGuys()
-  }, [])
+  }, [type])
 
   const Table = ({data}) => (
     <table className="min-w-full border border-gray-300 bg-white shadow-md rounded-md overflow-hidden">
