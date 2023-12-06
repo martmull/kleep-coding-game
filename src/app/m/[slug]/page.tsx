@@ -1,10 +1,16 @@
 "use client";
 import React, { useEffect, useState } from 'react'
 import SubmitButton from "@/components/submit-button";
+import { toast, ToastContainer } from "react-toastify";
 
 export default function Page({params}: { params: { slug: string } }) {
   const [isLoading, setIsLoading] = useState(true)
   const [selectedInfos, setSelectedInfos] = useState([])
+  const notify = () => toast.success("Information enregistrées !", {
+    position: toast.POSITION.TOP_RIGHT,
+    autoClose: 3000
+  });
+
   const toggleField = (infoId) => {
     setSelectedInfos(selectedInfos.map((info) => {
         if (info.id === infoId) info.selected = !info.selected
@@ -21,7 +27,9 @@ export default function Page({params}: { params: { slug: string } }) {
       body: JSON.stringify(selectedInfos)
     })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(() => {
+        notify()
+      })
   };
 
   useEffect(() => {
@@ -57,6 +65,7 @@ export default function Page({params}: { params: { slug: string } }) {
           </div>
         ))}
         <SubmitButton/>
+        <ToastContainer/>
       </form>
     </div>
   ) : (<></>)

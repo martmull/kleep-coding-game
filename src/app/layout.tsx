@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Link from "next/link";
 import HomeButton from "@/components/home-button";
+import 'react-toastify/dist/ReactToastify.css';
 
 const inter = Inter({subsets: ['latin']})
 
