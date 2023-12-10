@@ -25,7 +25,7 @@ export default function RootLayout({
       <HomeButton/>
     </Link>
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-500">
-      <div className="bg-white shadow-md rounded-md w-full max-w-lg">
+      <div className="bg-white shadow-md rounded-md w-full max-w-lg my-8">
         {children}
       </div>
     </div>
