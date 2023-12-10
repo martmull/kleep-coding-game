@@ -56,8 +56,12 @@ export default function BadGuys({type}: { type: string }) {
 
   return (
     <div className='p-8'>
-      <h1 className="text-3xl font-bold mb-4 text-indigo-600">Liste des Malfrats</h1>
-      <Table data={badGuys}/>
+      {badGuys.length ? (
+        <>
+          <h1 className="text-3xl font-bold mb-4 text-indigo-600">Liste des Malfrats</h1>
+          <Table data={badGuys}/>
+        </>
+      ) : (<h1 className="text-3xl font-bold mb-4 text-indigo-600">Aucun information à récolter</h1>)}
     </div>
   )
 }
